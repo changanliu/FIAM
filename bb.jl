@@ -5,9 +5,9 @@ using SimpleWeightedGraphs
 using LinearAlgebra
 using Random
 
-function bb(mat_A,K)#mat_A:n*k,K:num nodes on convex hull
+function bb(mat_A)#mat_A:n*k
     # t1=time();
-    K=K;
+    
     MN=size(mat_A);
     NN=MN[1];#600
     MM=MN[2];#100
@@ -29,15 +29,6 @@ function bb(mat_A,K)#mat_A:n*k,K:num nodes on convex hull
     push!(index_set2,max_index);
     push!(candidate_set2,max_index);
     push!(pre_index2,max_index);
-    # mustindex=[];
-    # for i=1:MM
-    #     amax=argmax(mat_A[:,i]);
-    #     amin=argmin(mat_A[:,i]);
-    #     push!(mustindex,amax);
-    #     push!(mustindex,amin);
-    # end
-    # mustindex=union(mustindex)
-    # println(mustindex);
     tmp_set=Int[];
     all_set=union(1:NN)
     selc=zeros(Int,NN);
@@ -47,18 +38,8 @@ function bb(mat_A,K)#mat_A:n*k,K:num nodes on convex hull
     tmp_add=Int[];
     tot=0;
     t2=time();
-    # tt1=t2-t1;
-    # print("tt1");
-    # println(tt1);
-    # while sum(index_set)<K
-    #     candidate_set=ones(Int,1,NN);
-    #    for i in 1:size(index_set)[2]
-    #        if index_set[1,i]==1
-    #            candidate_set[1,i]=0;
-    #            push!(candidate_set2,i);
-    #        end
-    #    end
-        while sum(candidate_set)>0
+    K=100;
+            while sum(candidate_set)>0
             # println(sum(candidate_set));
             # println(length(index_set2));
 
