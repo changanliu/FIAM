@@ -60,8 +60,6 @@ function cc(dataset,p,epsilon,alpha_0)
     dist_vp=sum(diffmat2,dims=1);
     beta_list=zeros(n,1);
 
-    # println("-------");
-    # println(sqrt((p-p_p)'*(p-p_p))[1,1]);#比这个值小一点点0.2，0.3
     thre = sqrt((p-p_p)'*(p-p_p))[1,1] - 5
     while sqrt((p-p_p)'*(p-p_p))[1,1]>thre
         found=0;
